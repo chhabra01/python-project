@@ -1,0 +1,24 @@
+import turtle          
+import time
+import random
+delay=0.1
+
+# Score
+score=0
+high_score=0
+
+#Setting up the screen
+wn=turtle.Screen()                  
+wn.title("SNAKE GAME")
+wn.bgcolor("green")
+wn.setup(width=600, height=600)
+wn.tracer(0) #turns off the screen updates
+
+#Snake Head
+head=turtle.Turtle()        
+head.speed(0) # to move the snake head without delay or to move snake as fast as possible 
+head.shape("square")
+head.color("black")                
+head.penup() # to not draw anything on screen
+head.goto(0,0)  # to take snake in center of screen
+head.direction="stop"  # when program start it is in middle
