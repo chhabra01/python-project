@@ -65,3 +65,43 @@ def move():       #to move the snake
     if head.direction=="right":
         x=head.xcor()                         #*
         head.setx(x+20)
+
+# Keyboard Bindings  :-  Inputs from the keyboard
+wn.listen()
+wn.onkeypress(go_up,"w")
+wn.onkeypress(go_down,"s")                 #*
+wn.onkeypress(go_left,"a")
+wn.onkeypress(go_right,"d")
+
+
+
+
+#Snake Food
+food=turtle.Turtle()
+food.speed(0) 
+food.shape("circle")
+food.color("red")                #*
+food.penup()
+food.goto(0,100) 
+
+
+# Main Game Loop
+while True:
+    wn.update()  # every time we run loop it updates the screen  
+    # Check for a collision with th screen
+    if head.xcor()>290 or head.xcor()<-290 or head.ycor()>290 or head.ycor()<-290:
+        time.sleep(1)  # pauses the game
+        head.goto(0,0)
+        head.direction="stop"
+         
+        
+        # Reseting the Score
+        score=0
+        
+          # Reset the delay
+        delay= 0.1
+        
+        pen.clear()
+        pen.write("Score: {} High Score: {}".format(score,high_score),align="center", font=("Courier",24,"normal"))
+
+        
